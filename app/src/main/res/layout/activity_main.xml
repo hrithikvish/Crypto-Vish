@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/searchLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/sortDesc"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/desc"-->
+<!--            android:layout_marginRight="5dp"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/sortAsce"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/asce"/>-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/searchRelativeLayout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchbar"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchbarET"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:isScrollContainer="true"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:src="@drawable/search"
+                app:layout_constraintTop_toTopOf="@id/searchbar"
+                app:layout_constraintBottom_toBottomOf="@id/searchbar"
+                app:layout_constraintEnd_toEndOf="@id/searchbar"/>
+
+            <ImageView
+                android:id="@+id/cancelIcon"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@drawable/cancel"
+                app:layout_constraintTop_toTopOf="@id/searchbar"
+                app:layout_constraintBottom_toBottomOf="@id/searchbar"
+                app:layout_constraintEnd_toEndOf="@id/searchbar"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/profileIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:paddingStart="10dp"
+            android:src="@drawable/profile_icon"/>
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cryptorv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchLinearLayout"
+        tools:listitem="@layout/crypto_rv_item" />
+
+<!--    <Button-->
+<!--        android:id="@+id/countcryptbtn"-->
+<!--        style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="12dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:padding="15dp"-->
+<!--        android:text="Count"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:strokeWidth="2dp" />-->
+
+    <ProgressBar
+        android:id="@+id/progressCryptorv"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/cryptorv"
+        app:layout_constraintEnd_toEndOf="@+id/cryptorv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/cryptorv"
+        app:layout_constraintTop_toTopOf="@+id/cryptorv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
